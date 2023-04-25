@@ -31,15 +31,20 @@ function filterList() {
 
       ingredients.push(r[i].ingredients[j].ingredient);
     }
+
     // appliance
     for (let h = 0; h < r[i].appliance.length; h++) {
       // mettre un if pour le trie
-      appliance.push(r[i].appliance);
+      if (appliance.indexOf(r[i].appliance) < 0) {
+        appliance.push(r[i].appliance);
+      }
     }
     // ustensils
     for (let k = 0; k < r[i].ustensils.length; k++) {
       // mettre un if pour le trie
-      ustensils.push(r[i].ustensils[k]);
+      if (ustensils.indexOf(r[i].ustensils[k]) < 0) {
+        ustensils.push(r[i].ustensils[k]);
+      }
     }
   }
 
