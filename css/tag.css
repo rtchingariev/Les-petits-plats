@@ -1,0 +1,85 @@
+.filtersContainer {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin: 0 20px;
+}
+.filter {
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.filter > div {
+  padding-left: 15px;
+  padding-top: 23px;
+  padding-bottom: 25px;
+  padding-right: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 5px;
+  width: 100%;
+}
+.filter > i {
+  color: #000;
+  font-size: 18px;
+  font-family: Arial;
+  padding-left: 15px;
+  padding-top: 23px;
+  padding-bottom: 25px;
+  padding-right: 15px;
+}
+.filter section {
+  width: 100%;
+  border-radius: 5px;
+  padding: 15px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.filter section div {
+  width: 30%;
+}
+
+.filterOptionsIngredients {
+  display: none; /* flex pour afficher & none pour cacher le contenu */
+}
+.filterOptionsDevices {
+  display: none;
+}
+.filterOptionsUstensils {
+  display: none;
+}
+
+.filterIngredients > div {
+  background-color: #3282f7;
+  cursor: pointer;
+}
+.filterIngredients section {
+  background-color: #3282f7;
+}
+
+.filterDevices {
+  background-color: #68d9a4;
+}
+.filterDevices > div {
+  background-color: #68d9a4;
+  cursor: pointer;
+}
+.filterDevices section {
+  background-color: #68d9a4;
+}
+
+.filterUstensils {
+  background-color: #ed6454;
+}
+.filterUstensils > div {
+  background-color: #ed6454;
+  cursor: pointer;
+}
+.filterUstensils section {
+  background-color: #ed6454;
+}

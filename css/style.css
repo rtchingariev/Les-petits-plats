@@ -1,0 +1,205 @@
+/* 
+font-family: 'DM Sans', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Roboto', sans-serif; 
+*/
+
+/* :root {
+  --primaire: #901c1c;
+  --secondaire: #db8876;
+  --link: #901c1c;
+  --hover: #db8876;
+  --font: 'DM Sans', sans-serif;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-top: 25px;
+}
+
+h1 {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 36px;
+  color: #d04f4f;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.logo {
+  display: block;
+  width: 50px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e7e7e7;
+  border-radius: 5px;
+  border: none;
+  margin: 20px;
+}
+
+.search_input {
+  display: block;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 20px;
+  background: #e7e7e7;
+  border: 1px solid #e7e7e7;
+  outline: none;
+}
+
+.search_icon {
+  width: 40px;
+}
+
+.recipes_section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+  margin: 40px 0;
+}
+
+.select_sortby {
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 20px;
+}
+
+.select_ingredients {
+  display: block;
+  width: 170px;
+  appearance: none;
+  border-radius: 5px;
+  border: 1px solid #3282f7;
+  background: #3282f7;
+  padding: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  outline: none;
+}
+
+.select_appliance {
+  display: block;
+  width: 170px;
+  appearance: none;
+  border-radius: 5px;
+  border: 1px solid #68d9a4;
+  background: #68d9a4;
+  padding: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 20px;
+  outline: none;
+}
+
+.select_ustensils {
+  display: block;
+  width: 170px;
+  appearance: none;
+  border-radius: 5px;
+  border: 1px solid #ed6454;
+  background: #ed6454;
+  padding: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-left: 20px;
+  outline: none;
+}
+
+.recipes_section article {
+  display: block;
+  width: 380px;
+  height: 364px;
+  display: flex;
+  justify-self: center;
+  justify-content: flex-start;
+  align-items: start;
+  flex-direction: column;
+  background: #e7e7e7;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.recipes_section article img {
+  width: 380px;
+  height: 178px;
+  border-radius: 5px 5px 0 0;
+}
+
+.recipes_section article h2 {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.time_icon {
+  width: 24px;
+  position: absolute;
+  top: 203px;
+  right: 80px;
+}
+
+.preparation_time {
+  width: 60px;
+  position: absolute;
+  top: 200px;
+  right: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.recipe_ingredients {
+  width: 165px;
+  height: auto;
+  position: absolute;
+  top: 230px;
+  left: 20px;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+}
+
+.recipe_description {
+  width: 165px;
+  height: 110px;
+  position: absolute;
+  top: 230px;
+  right: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  text-align: justify;
+}
