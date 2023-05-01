@@ -18,9 +18,8 @@ function filterList() {
   // });
 
   ingredients = [];
-  appliance = [];
+  appliances = [];
   ustensils = [];
-  debugger;
 
   for (let i = 0; i < r.length; i++) {
     // ingredients
@@ -28,26 +27,33 @@ function filterList() {
       // mettre un if pour le trie
       const ingredientSmall = r[i].ingredients[j].ingredient.toLowerCase();
       if (
-        !ingredients.includes((ingredient) => {
-          return ingredient.toLowerCase() == ingredientSmall;
-        })
+        !ingredients.some(
+          (ingredient) => ingredient.toLowerCase() == ingredientSmall
+        )
       ) {
         ingredients.push(r[i].ingredients[j].ingredient);
       }
     }
 
     // appliance
-    for (let h = 0; h < r[i].appliance.length; h++) {
-      // mettre un if pour le trie
-      if (appliance.indexOf(r[i].appliance.toLowerCase()) < 0) {
-        appliance.push(r[i].appliance.toLowerCase());
-      }
+    if (
+      !appliances.some(
+        (appliance) => appliance.toLowerCase() == r[i].appliance.toLowerCase()
+      )
+    ) {
+      appliances.push(r[i].appliance);
     }
-    // ustensils - toLowerCase() pour supprimer les doublons min/maj
-    for (let k = 0; k < r[i].ustensils.length; k++) {
+
+    // ustensils
+    for (let j = 0; j < r[i].ustensils.length; j++) {
       // mettre un if pour le trie
-      if (ustensils.indexOf(r[i].ustensils[k].toLowerCase()) < 0) {
-        ustensils.push(r[i].ustensils[k].toLowerCase());
+      if (
+        !ustensils.some(
+          (ustensil) =>
+            ustensil.toLowerCase() == r[i].ustensils[j].toLowerCase()
+        )
+      ) {
+        ustensils.push(r[i].ustensils[j]);
       }
     }
   }
@@ -62,9 +68,9 @@ function filterList() {
 
   // list appliance
   const aList = document.getElementById('appliance_list');
-  for (let i = 0; i < appliance.length; i++) {
+  for (let i = 0; i < appliances.length; i++) {
     const d = document.createElement('div');
-    d.textContent = appliance[i];
+    d.textContent = appliances[i];
     aList.appendChild(d);
   }
 
