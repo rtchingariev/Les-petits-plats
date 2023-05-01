@@ -20,30 +20,34 @@ function filterList() {
   ingredients = [];
   appliance = [];
   ustensils = [];
+  debugger;
 
   for (let i = 0; i < r.length; i++) {
     // ingredients
     for (let j = 0; j < r[i].ingredients.length; j++) {
       // mettre un if pour le trie
-      if (ingredients.indexOf(r[i].ingredients[j]) < 0) {
-        ingredients.push(r[i]);
+      const ingredientSmall = r[i].ingredients[j].ingredient.toLowerCase();
+      if (
+        !ingredients.includes((ingredient) => {
+          return ingredient.toLowerCase() == ingredientSmall;
+        })
+      ) {
+        ingredients.push(r[i].ingredients[j].ingredient);
       }
-
-      ingredients.push(r[i].ingredients[j].ingredient);
     }
 
     // appliance
     for (let h = 0; h < r[i].appliance.length; h++) {
       // mettre un if pour le trie
-      if (appliance.indexOf(r[i].appliance) < 0) {
-        appliance.push(r[i].appliance);
+      if (appliance.indexOf(r[i].appliance.toLowerCase()) < 0) {
+        appliance.push(r[i].appliance.toLowerCase());
       }
     }
-    // ustensils
+    // ustensils - toLowerCase() pour supprimer les doublons min/maj
     for (let k = 0; k < r[i].ustensils.length; k++) {
       // mettre un if pour le trie
-      if (ustensils.indexOf(r[i].ustensils[k]) < 0) {
-        ustensils.push(r[i].ustensils[k]);
+      if (ustensils.indexOf(r[i].ustensils[k].toLowerCase()) < 0) {
+        ustensils.push(r[i].ustensils[k].toLowerCase());
       }
     }
   }
