@@ -89,29 +89,38 @@ function filterList() {
 //   document.querySelector('.filterOptionsIngredients').style.display = 'flex';
 // }
 
+// function showHideIList() {
+//   var iListTag = document.getElementById('ingredients_list');
+//   if (iListTag.style.display == 'none') {
+//     iListTag.style.display = 'flex';
+//   } else {
+//     iListTag.style.display = 'none';
+//   }
+// }
+
 function showHideIList() {
   var iListTag = document.getElementById('ingredients_list');
-  if (iListTag.style.display === 'none') {
-    iListTag.style.display = 'flex';
-  } else {
+  if (iListTag.style.display !== 'none') {
     iListTag.style.display = 'none';
+  } else {
+    iListTag.style.display = 'flex';
   }
 }
 
 function showHideAList() {
   var aListTag = document.getElementById('appliance_list');
-  if (aListTag.style.display === 'none') {
-    aListTag.style.display = 'flex';
-  } else {
+  if (aListTag.style.display !== 'none') {
     aListTag.style.display = 'none';
+  } else {
+    aListTag.style.display = 'flex';
   }
 }
 
 function showHideUList() {
   var uListTag = document.getElementById('ustensils_list');
-  if (uListTag.style.display === 'none') {
-    uListTag.style.display = 'flex';
-  } else {
+  if (uListTag.style.display !== 'none') {
     uListTag.style.display = 'none';
+  } else {
+    uListTag.style.display = 'flex';
   }
 }
