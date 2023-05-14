@@ -55,23 +55,19 @@
   display: none;
 }
 
-.tagIngredient
-{
+.tagIngredient {
   background-color: #3282f7;
 }
 
-.tagAppliance
-{
+.tagAppliance {
   background-color: #68d9a4;
 }
 
-.tagUstensil
-{
+.tagUstensil {
   background-color: #ed6454;
 }
 
-.tagsContainer
-{
+.tagsContainer {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
@@ -80,8 +76,7 @@
   margin-bottom: 15px;
 }
 
-.tagsContainer > div
-{
+.tagsContainer > div {
   border-radius: 5px;
   padding-left: 20px;
   padding-right: 20px;
@@ -112,4 +107,8 @@
 }
 .filterUstensils section {
   background-color: #ed6454;
+}
+
+.tag-close {
+  margin-left: 10px;
 }

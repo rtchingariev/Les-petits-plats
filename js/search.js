@@ -14,6 +14,14 @@ function filterList() {
   ingredients = [];
   appliances = [];
   ustensils = [];
+  ingredientsTag = [];
+
+  const listTags = document.getElementById('tagsContainer');
+  for (let i = 0; i < listTags.children.length; i++) {
+    if (listTags[i].classList.contains('tagIngredient')) {
+      ingredientsTag.push(listTags[i].textContent.toLowerCase());
+    }
+  }
 
   // extract ingredients, appliances and ustensils from recipes in (r)
   for (let i = 0; i < r.length; i++) {
@@ -24,7 +32,8 @@ function filterList() {
       if (
         !ingredients.some(
           (ingredient) => ingredient.toLowerCase() == ingredientSmall
-        )
+        ) &&
+        !ingredientsTag.includes(ingredientSmall)
       ) {
         ingredients.push(r[i].ingredients[j].ingredient);
       }
@@ -53,53 +62,50 @@ function filterList() {
     }
   }
 
-  //  // list ingredients
-  //  const iList = document.getElementById('ingredients_list');
-  //  for (let k = 0; k < ingredients.length; k++) {
-  //    const d = document.createElement('div');
-  //    const i = document.createElement('i');
-  //    i.setAttribute('class', 'fa-regular fa-circle-xmark');
-
-  //    d.onclick = function () {
-  //      addIngredientTag(ingredients[k]);
-  //    };
-  //    d.textContent = ingredients[k];
-  //    iList.appendChild(d);
-  //    d.appendChild(i);
-  //  }
-
   // list ingredients
   const iList = document.getElementById('ingredients_list');
   for (let i = 0; i < ingredients.length; i++) {
     const d = document.createElement('div');
+    d.textContent = ingredients[i];
     d.onclick = function () {
       addIngredientTag(ingredients[i]);
     };
-    d.textContent = ingredients[i];
+
     iList.appendChild(d);
   }
 
-  // list appliance
-  const aList = document.getElementById('appliance_list');
-  for (let i = 0; i < appliances.length; i++) {
-    const d = document.createElement('div');
-    d.onclick = function () {
-      addApplianceTag(appliances[i]);
-    };
-    d.textContent = appliances[i];
-    aList.appendChild(d);
-  }
+  // // list ingredients
+  // const iList = document.getElementById('ingredients_list');
+  // for (let i = 0; i < ingredients.length; i++) {
+  //   const d = document.createElement('div');
+  //   d.onclick = function () {
+  //     addIngredientTag(ingredients[i]);
+  //   };
+  //   d.textContent = ingredients[i];
+  //   iList.appendChild(d);
+  // }
 
-  // list ustensils
-  const uList = document.getElementById('ustensils_list');
-  for (let i = 0; i < ustensils.length; i++) {
-    const d = document.createElement('div');
-    d.onclick = function () {
-      addUstensilTag(ustensils[i]);
-    };
-    d.textContent = ustensils[i];
-    uList.appendChild(d);
-  }
+  // // list appliance
+  // const aList = document.getElementById('appliance_list');
+  // for (let i = 0; i < appliances.length; i++) {
+  //   const d = document.createElement('div');
+  //   d.onclick = function () {
+  //     addApplianceTag(appliances[i]);
+  //   };
+  //   d.textContent = appliances[i];
+  //   aList.appendChild(d);
+  // }
+
+  // // list ustensils
+  // const uList = document.getElementById('ustensils_list');
+  // for (let i = 0; i < ustensils.length; i++) {
+  //   const d = document.createElement('div');
+  //   d.onclick = function () {
+  //     addUstensilTag(ustensils[i]);
+  //   };
+  //   d.textContent = ustensils[i];
+  //   uList.appendChild(d);
+  // }
 
   displayData(r);
 }
@@ -119,6 +125,11 @@ function addUstensilTag(str) {
 function addTag(str, cssClass) {
   const d = document.createElement('div');
   d.textContent = str;
+  const i = document.createElement('i');
+  i.className = 'fa-regular fa-circle-xmark tag-close';
+
+  d.appendChild(i);
+
   d.classList.add(cssClass);
   document.getElementById('tagsContainer').appendChild(d);
   filterList();
