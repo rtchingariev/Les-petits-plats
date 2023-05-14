@@ -83,7 +83,7 @@ async function getRecipes() {
 
 async function displayData(recipes) {
   const recipesSection = document.querySelector('.recipes_section');
-
+  recipesSection.innerHTML = '';
   recipes.forEach((recipes) => {
     const recipeModel = recipeFactory(recipes);
     const recipesDOM = recipeModel.getRecipesDOM();
@@ -104,7 +104,3 @@ window.onload = function () {
 
 let recipes = [];
 let ingredients = [];
-
-// function filter() {
-//   const r = [...recipes];
-// }

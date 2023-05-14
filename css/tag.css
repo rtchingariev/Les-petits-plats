@@ -19,10 +19,10 @@
   padding-bottom: 25px;
   padding-right: 15px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   border-radius: 5px;
   width: 100%;
+  gap: 10px;
 }
 .filter > i {
   color: #000;
@@ -42,6 +42,7 @@
 }
 .filter section div {
   width: 30%;
+  cursor: pointer;
 }
 
 .filterOptionsIngredients {
@@ -54,17 +55,49 @@
   display: none;
 }
 
+.tagIngredient
+{
+  background-color: #3282f7;
+}
+
+.tagAppliance
+{
+  background-color: #68d9a4;
+}
+
+.tagUstensil
+{
+  background-color: #ed6454;
+}
+
+.tagsContainer
+{
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+.tagsContainer > div
+{
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+}
+
 .filterIngredients > div {
   background-color: #3282f7;
   cursor: pointer;
 }
-.filterIngredients section {
+.filterIngredients > section {
   background-color: #3282f7;
 }
 
-.filterDevices {
-  background-color: #68d9a4;
-}
 .filterDevices > div {
   background-color: #68d9a4;
   cursor: pointer;
@@ -73,9 +106,6 @@
   background-color: #68d9a4;
 }
 
-.filterUstensils {
-  background-color: #ed6454;
-}
 .filterUstensils > div {
   background-color: #ed6454;
   cursor: pointer;
