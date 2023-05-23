@@ -1,93 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/tag.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/7b419fb201.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/search.js" defer></script>
+    <title>Les petits plats</title>
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png">
-  <link href="css/style.css" rel="stylesheet" type="text/css">
-  <link href="css/tag.css" rel="stylesheet" type="text/css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap"
-    rel="stylesheet">
-  <script src="https://kit.fontawesome.com/7b419fb201.js" crossorigin="anonymous"></script>
-  <script src="js/index.js" defer></script>
-  <script src="js/search.js" defer></script>
-  <title>Les petits plats</title>
-</head>
-
-<body>
-  <header>
-
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.svg" alt="Les petits plats"></a>
-    </div>
-    <div class="title">
-      <h1>Les petits plats</h1>
-    </div>
-
-  </header>
-  <main id="main">
-
-    <!-- search bar -->
-    <div class="search">
-      <input type="text" placeholder="Rechercher une recette" class="search_input" id="livesearch">
-      <span class="search_icon"><i class="fa-solid fa-magnifying-glass fa-xl search_icon"></i></span>
-    </div>
-
-    <!-- search tags -->
-    <div class="tagsContainer" id="tagsContainer">
-    </div>
-
-    <div class="filtersContainer">
-
-      <div onclick="showHideIList()" class="filter filterIngredients">
-        <div>
-          <div>Ingrédients</div>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <section class="filterOptionsIngredients" id="ingredients_list">
-        </section>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html"
+          ><img src="images/logo.svg" alt="Les petits plats"
+        /></a>
+      </div>
+      <div class="title">
+        <h1>Les petits plats</h1>
+      </div>
+    </header>
+    <main id="main">
+      <!-- search bar -->
+      <div class="search">
+        <input
+          type="search"
+          placeholder="Rechercher une recette"
+          class="search_input"
+          id="searchField"
+          oninput="filterList()"
+        />
+        <span class="search_icon"
+          ><i class="fa-solid fa-magnifying-glass fa-xl search_icon"></i
+        ></span>
       </div>
 
-      <div onclick="showHideAList()" class="filter filterDevices">
-        <div>
-          <div>Appareils</div>
-          <i class="fa-solid fa-chevron-down"></i>
+      <!-- search tags -->
+      <div class="tagsContainer" id="tagsContainer"></div>
+
+      <div class="filtersContainer">
+        <div onclick="showHideIList()" class="filter filterIngredients">
+          <div>
+            <div>Ingrédients</div>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <section
+            class="filterOptionsIngredients"
+            id="ingredients_list"
+          ></section>
         </div>
-        <section class="filterOptionsDevices" id="appliance_list">
-        </section>
+
+        <div onclick="showHideAList()" class="filter filterDevices">
+          <div>
+            <div>Appareils</div>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <section class="filterOptionsDevices" id="appliance_list"></section>
+        </div>
+
+        <div onclick="showHideUList()" class="filter filterUstensils">
+          <div>
+            <div>Ustensils</div>
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <section class="filterOptionsUstensils" id="ustensils_list"></section>
+        </div>
       </div>
 
-      <div onclick="showHideUList()" class="filter filterUstensils">
-        <div>
-          <div>Ustensils</div>
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <section class="filterOptionsUstensils" id="ustensils_list">
-        </section>
-      </div>
-    </div>
-
-
-    <div class="select_sortby">
-
-      <!-- sort by ingredients -->
-      <div class="test">
-        <div>
+      <div class="select_sortby">
+        <!-- sort by ingredients -->
+        <div class="test">
+          <div></div>
         </div>
       </div>
 
-    </div>
+      <!-- sdr = small dishes recipes -->
+      <div class="recipes_section" id="recipes_section"></div>
+    </main>
 
-    <!-- sdr = small dishes recipes -->
-    <div class="recipes_section" id="recipes_section"></div>
-  </main>
-
-  <!-- <script src="js/index.js"></script> -->
-</body>
-
+    <!-- <script src="js/index.js"></script> -->
+  </body>
 </html>

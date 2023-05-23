@@ -1,11 +1,17 @@
-document.querySelector('#livesearch').addEventListener('input', filterList);
+// document.querySelector('#livesearch').addEventListener('input', filterList);
 
 function filterList() {
   // copie de recettes
   let r = [...recipes];
-  const searchInput = document.querySelector('#livesearch');
-  const filter = searchInput.value.toLowerCase();
-  const listItems = document.querySelectorAll('.recipes_list');
+  // const searchInput = document.querySelector('#livesearch');
+  // const filter = searchInput.value.toLowerCase();
+  // const listItems = document.querySelectorAll('.recipes_list');
+
+  const searchField = document.getElementById('searchField');
+  if (searchField.value.length > 3) {
+    // filter recipes by searchField.value
+    r.filter(searchField.value);
+  }
 
   // filter receipes in (r) by the value in search input (if > 3 characters)
 
@@ -180,17 +186,16 @@ function addTag(str, cssClass) {
   d.textContent = str;
   const i = document.createElement('i');
   i.className = 'fa-regular fa-circle-xmark tag-close';
-  i.setAttribute('onclick', 'removeTag()'); // removeTag() - removeChild
+  i.setAttribute('onclick', 'removeTag(this)'); // removeTag() - removeChild
   d.appendChild(i);
   d.classList.add(cssClass);
   document.getElementById('tagsContainer').appendChild(d);
   filterList();
 }
 
-function removeTag() {
+function removeTag(elt) {
   const delTag = document.getElementById('tagsContainer');
-  delTag.removeChild(delTag.firstElementChild);
-
+  delTag.removeChild(elt.parentElement);
   filterList();
 }
 
