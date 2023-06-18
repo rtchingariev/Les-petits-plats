@@ -148,48 +148,27 @@ function filterList() {
     }
   }
   // display ingredients list
-  const iList = document.getElementById('ingredients_list');
-  iList.innerHTML = '';
-  for (let i = 0; i < ingredients.length; i++) {
-    const d = document.createElement('div');
-    d.textContent = ingredients[i];
-    d.onclick = function () {
-      addIngredientTag(ingredients[i]);
-    };
-    iList.appendChild(d);
-  }
-  // list appliance
-  const aList = document.getElementById('appliance_list');
-  aList.innerHTML = '';
-  for (let i = 0; i < appliances.length; i++) {
-    const d = document.createElement('div');
-    d.onclick = function () {
-      addApplianceTag(appliances[i]);
-    };
-    d.textContent = appliances[i];
-    aList.appendChild(d);
-  }
-  // list ustensils
-  const uList = document.getElementById('ustensils_list');
-  uList.innerHTML = '';
-  for (let i = 0; i < ustensils.length; i++) {
-    const d = document.createElement('div');
-    d.onclick = function () {
-      addUstensilTag(ustensils[i]);
-    };
-    d.textContent = ustensils[i];
-    uList.appendChild(d);
-  }
+  displayIngredientsList(ingredients);
+
+  // display appliance list - à voir avec Olivier
+  displayAppliancesList(appliances);
+
+  // display ustensils list - à voir avec Olivier
+  displayUstensilsList(ustensils);
+
   displayData(r);
 }
 function addIngredientTag(str) {
   addTag(str, 'tagIngredient');
+  hideIList();
 }
 function addApplianceTag(str) {
   addTag(str, 'tagAppliance');
+  hideAList();
 }
 function addUstensilTag(str) {
   addTag(str, 'tagUstensil');
+  hideUList();
 }
 function addTag(str, cssClass) {
   const d = document.createElement('div');
@@ -207,39 +186,163 @@ function removeTag(elt) {
   delTag.removeChild(elt.parentElement);
   filterList();
 }
+
 function showHideIList() {
   var iListTag = document.getElementById('ingredients_list');
   var aListTag = document.getElementById('appliance_list');
   var uListTag = document.getElementById('ustensils_list');
   if (iListTag.style.display !== 'flex') {
     iListTag.style.display = 'flex';
-    aListTag.style.display = 'none';
-    uListTag.style.display = 'none';
+    document.getElementById('ingredientsTitle').style.display = 'none';
+    var input = document.getElementById('ingredientsSearch');
+    input.style.display = '';
+    input.value = '';
+    input.focus();
+    hideAList();
+    hideUList();
   } else {
-    iListTag.style.display = 'none';
+    hideIList();
   }
 }
+
+function hideIList() {
+  var iListTag = document.getElementById('ingredients_list');
+  iListTag.style.display = 'none';
+  document.getElementById('ingredientsTitle').style.display = '';
+  document.getElementById('ingredientsSearch').style.display = 'none';
+}
+
 function showHideAList() {
   var iListTag = document.getElementById('ingredients_list');
   var aListTag = document.getElementById('appliance_list');
   var uListTag = document.getElementById('ustensils_list');
   if (aListTag.style.display !== 'flex') {
-    iListTag.style.display = 'none';
     aListTag.style.display = 'flex';
-    uListTag.style.display = 'none';
+    document.getElementById('appliencesTitle').style.display = 'none';
+    var input = document.getElementById('appliencesSearch');
+    input.style.display = '';
+    input.value = '';
+    input.focus();
+    hideIList();
+    hideUList();
   } else {
-    aListTag.style.display = 'none';
+    hideAList();
   }
 }
+
+function hideAList() {
+  var aListTag = document.getElementById('appliance_list');
+  aListTag.style.display = 'none';
+  document.getElementById('appliencesTitle').style.display = '';
+  document.getElementById('appliencesSearch').style.display = 'none';
+}
+
 function showHideUList() {
   var iListTag = document.getElementById('ingredients_list');
   var aListTag = document.getElementById('appliance_list');
   var uListTag = document.getElementById('ustensils_list');
   if (uListTag.style.display !== 'flex') {
-    iListTag.style.display = 'none';
-    aListTag.style.display = 'none';
     uListTag.style.display = 'flex';
+    document.getElementById('ustensilsTitle').style.display = 'none';
+    var input = document.getElementById('ustensilsSearch');
+    input.style.display = '';
+    input.value = '';
+    input.focus();
+    hideIList();
+    hideAList();
   } else {
-    uListTag.style.display = 'none';
+    hideUList();
+  }
+}
+
+function hideUList() {
+  var uListTag = document.getElementById('ustensils_list');
+  uListTag.style.display = 'none';
+  document.getElementById('ustensilsTitle').style.display = '';
+  document.getElementById('ustensilsSearch').style.display = 'none';
+}
+
+function filterIngredients() {
+  var filterValue = document
+    .getElementById('ingredientsSearch')
+    .value.toLowerCase();
+  var filteredList = [];
+  for (var i = 0; i < ingredients.length; i++) {
+    if (ingredients[i].toLowerCase().includes(filterValue)) {
+      filteredList.push(ingredients[i]);
+    }
+  }
+
+  displayIngredientsList(filteredList);
+}
+
+function displayIngredientsList(list) {
+  const iList = document.getElementById('ingredients_list');
+  iList.innerHTML = '';
+  for (let i = 0; i < list.length; i++) {
+    const d = document.createElement('div');
+    d.textContent = list[i];
+    d.onclick = function (e) {
+      addIngredientTag(e.target.textContent);
+    };
+    iList.appendChild(d);
+  }
+}
+
+// appliances - à voir avec Olivier !!!
+
+function filterAppliances() {
+  var filterValue = document
+    .getElementById('appliencesSearch')
+    .value.toLowerCase();
+  var filteredList = [];
+  for (var i = 0; i < appliances.length; i++) {
+    if (appliances[i].toLowerCase().includes(filterValue)) {
+      filteredList.push(appliances[i]);
+    }
+  }
+
+  displayAppliancesList(filteredList);
+}
+
+function displayAppliancesList(list) {
+  const aList = document.getElementById('appliance_list');
+  aList.innerHTML = '';
+  for (let i = 0; i < appliances.length; i++) {
+    const d = document.createElement('div');
+    d.textContent = list[i];
+    d.onclick = function (e) {
+      addApplianceTag(e.target.textContent);
+    };
+    aList.appendChild(d);
+  }
+}
+
+// ustensils - à voir avec Olivier
+
+function filterUstensils() {
+  var filterValue = document
+    .getElementById('ustensilsSearch')
+    .value.toLowerCase();
+  var filteredList = [];
+  for (var i = 0; i < ustensils.length; i++) {
+    if (ustensils[i].toLowerCase().includes(filterValue)) {
+      filteredList.push(ustensils[i]);
+    }
+  }
+
+  displayUstensilsList(filteredList);
+}
+
+function displayUstensilsList(list) {
+  const uList = document.getElementById('ustensils_list');
+  uList.innerHTML = '';
+  for (let i = 0; i < ustensils.length; i++) {
+    const d = document.createElement('div');
+    d.textContent = list[i];
+    d.onclick = function (e) {
+      addUstensilTag(e.target.textContent);
+    };
+    uList.appendChild(d);
   }
 }

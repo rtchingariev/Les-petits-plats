@@ -17,8 +17,8 @@
       src="https://kit.fontawesome.com/7b419fb201.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/index.js" defer></script>
-    <script src="js/search.js" defer></script>
+    <script src="js/index-new.js" defer></script>
+    <script src="js/search-new.js" defer></script>
     <!-- <script src="js/searchV2.js" defer></script> -->
     <title>Les petits plats</title>
   </head>
@@ -53,10 +53,21 @@
       <div class="tagsContainer" id="tagsContainer"></div>
 
       <div class="filtersContainer">
-        <div onclick="showHideIList()" class="filter filterIngredients">
+        <div class="filter filterIngredients">
           <div>
-            <div>Ingrédients</div>
-            <i class="fa-solid fa-chevron-down"></i>
+            <div class="filterTitleContainer">
+              <span onclick="showHideIList()" id="ingredientsTitle"
+                >Ingrédients</span
+              >
+              <input
+                id="ingredientsSearch"
+                style="display: none"
+                class="filterSearch"
+                placeholder="Rechercher un ingrédient"
+                oninput="filterIngredients()"
+              />
+            </div>
+            <i onclick="showHideIList()" class="fa-solid fa-chevron-down"></i>
           </div>
           <section
             class="filterOptionsIngredients"
@@ -64,18 +75,40 @@
           ></section>
         </div>
 
-        <div onclick="showHideAList()" class="filter filterDevices">
+        <div class="filter filterDevices">
           <div>
-            <div>Appareils</div>
-            <i class="fa-solid fa-chevron-down"></i>
+            <div class="filterTitleContainer">
+              <span onclick="showHideAList()" id="appliencesTitle"
+                >Appareils</span
+              >
+              <input
+                id="appliencesSearch"
+                style="display: none"
+                class="filterSearch"
+                placeholder="Rechercher un appareil"
+                oninput="filterAppliances()"
+              />
+            </div>
+            <i onclick="showHideAList()" class="fa-solid fa-chevron-down"></i>
           </div>
           <section class="filterOptionsDevices" id="appliance_list"></section>
         </div>
 
-        <div onclick="showHideUList()" class="filter filterUstensils">
+        <div class="filter filterUstensils">
           <div>
-            <div>Ustensils</div>
-            <i class="fa-solid fa-chevron-down"></i>
+            <div class="filterTitleContainer">
+              <span onclick="showHideUList()" id="ustensilsTitle"
+                >Ustensils</span
+              >
+              <input
+                id="ustensilsSearch"
+                style="display: none"
+                class="filterSearch"
+                placeholder="Rechercher un ustensil"
+                oninput="filterUstensils()"
+              />
+            </div>
+            <i onclick="showHideUList()" class="fa-solid fa-chevron-down"></i>
           </div>
           <section class="filterOptionsUstensils" id="ustensils_list"></section>
         </div>

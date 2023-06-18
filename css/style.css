@@ -70,6 +70,10 @@ h1 {
   border: 1px solid #e7e7e7;
   outline: none;
 }
+.search_input::placeholder {
+  color: black;
+  opacity: 0.25;
+}
 
 .search_icon {
   width: 40px;
