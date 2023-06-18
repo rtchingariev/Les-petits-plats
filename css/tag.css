@@ -1,5 +1,5 @@
-input:focus{
-    outline: none;
+input:focus {
+  outline: none;
 }
 
 ::placeholder {
@@ -14,7 +14,7 @@ input:focus{
   margin: 0 20px;
 }
 .filter {
-  color: white;
+  color: #fff;
   font-family: 'Lato', sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -94,8 +94,7 @@ input:focus{
   color: white;
 }
 
-.filterTitleContainer
-{
+.filterTitleContainer {
   width: 100%;
 }
 
@@ -112,7 +111,6 @@ input:focus{
   color: white;
   opacity: 0.5;
 }
-
 
 .filterIngredients > div {
   background-color: #3282f7;
