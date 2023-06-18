@@ -150,10 +150,10 @@ function filterList() {
   // display ingredients list
   displayIngredientsList(ingredients);
 
-  // display appliance list - à voir avec Olivier
+  // display appliance list
   displayAppliancesList(appliances);
 
-  // display ustensils list - à voir avec Olivier
+  // display ustensils list
   displayUstensilsList(ustensils);
 
   displayData(r);
@@ -262,6 +262,7 @@ function hideUList() {
   document.getElementById('ustensilsSearch').style.display = 'none';
 }
 
+// Ingredients input search filter
 function filterIngredients() {
   var filterValue = document
     .getElementById('ingredientsSearch')
@@ -289,8 +290,7 @@ function displayIngredientsList(list) {
   }
 }
 
-// appliances - à voir avec Olivier !!!
-
+// Appliances input search filter
 function filterAppliances() {
   var filterValue = document
     .getElementById('appliencesSearch')
@@ -318,7 +318,7 @@ function displayAppliancesList(list) {
   }
 }
 
-// ustensils - à voir avec Olivier
+// Ustensils input search filter
 
 function filterUstensils() {
   var filterValue = document
