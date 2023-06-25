@@ -335,15 +335,29 @@ function filterUstensils() {
   displayUstensilsList(filteredList);
 }
 
+// function displayUstensilsList(list) {
+//   const uList = document.getElementById('ustensils_list');
+//   uList.innerHTML = '';
+//   for (let i = 0; i < ustensils.length; i++) {
+//     const d = document.createElement('div');
+//     d.textContent = list[i];
+//     d.onclick = function (e) {
+//       addUstensilTag(e.target.textContent);
+//     };
+//     uList.appendChild(d);
+//   }
+// }
+
+// test forEach
 function displayUstensilsList(list) {
   const uList = document.getElementById('ustensils_list');
   uList.innerHTML = '';
-  for (let i = 0; i < ustensils.length; i++) {
+  ustensils.forEach((item) => {
     const d = document.createElement('div');
     d.textContent = list[i];
     d.onclick = function (e) {
       addUstensilTag(e.target.textContent);
     };
     uList.appendChild(d);
-  }
+  });
 }
